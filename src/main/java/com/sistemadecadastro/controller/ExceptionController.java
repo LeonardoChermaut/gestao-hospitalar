@@ -28,13 +28,13 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
     @ExceptionHandler(value = DoctorInvalidException.class)
     public ResponseEntity<Object> handleUserInvalidoException(
            Exception ex, WebRequest request) {
-        String bodyOfResponse = "User inválido, verifique as informações e tente novamente. " + (ex.getMessage() == null ? "" : ex.getMessage());        return handleExceptionInternal(ex, bodyOfResponse,
+        String bodyOfResponse = "Médico inválido, verifique as informações e tente novamente. " + (ex.getMessage() == null ? "" : ex.getMessage());        return handleExceptionInternal(ex, bodyOfResponse,
                 new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }
     @ExceptionHandler(value = DoctorNotFoundException.class)
     public ResponseEntity<Object> handleUserNaoEncontradoException(
            Exception ex, WebRequest request) {
-        String bodyOfResponse = "User não encontrado. Verifique as informações e tente novamente. " + (ex.getMessage() == null ? "" : ex.getMessage());
+        String bodyOfResponse = "Médico não encontrado. Verifique as informações e tente novamente. " + (ex.getMessage() == null ? "" : ex.getMessage());
         return handleExceptionInternal(ex, bodyOfResponse,
                 new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }
@@ -42,7 +42,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
     @ExceptionHandler(value = DoctorNotExistentException.class)
     public ResponseEntity<Object> handleUserExistenteException(
             Exception ex, WebRequest request) {
-        Object bodyOfResponse = "Email ou username já existentes, verifique outros. " + (ex.getMessage() == null ? "" : ex.getMessage());
+        Object bodyOfResponse = "Erro: " + (ex.getMessage() == null ? "" : ex.getMessage());
         return handleExceptionInternal(ex, bodyOfResponse,
                 new HttpHeaders(), HttpStatus.NOT_FOUND, request);
     }
@@ -62,12 +62,6 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
                 new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }
 
-    @ExceptionHandler(value = SpecialtiesException.class)
-    public ResponseEntity<Object> handleSpecialtiesExistenteException(
-            Exception ex, WebRequest request) {
-        Object bodyOfResponse = "Especialidade já existente, verifique outros. " + (ex.getMessage() == null ? "" : ex.getMessage());
-        return handleExceptionInternal(ex, bodyOfResponse,
-                new HttpHeaders(), HttpStatus.NOT_FOUND, request);
-    }
+
 
 }

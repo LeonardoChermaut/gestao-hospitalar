@@ -35,7 +35,6 @@ public class DoctorService {
 		model.setCelular(dto.getCelular());
 		model.setCrm(dto.getCrm());
 		model.setTelefone(dto.getTelefone());
-		model.setEspecialidade(this.repository.findById(dto.getIdEspecialidade()).get().getEspecialidade());
 
 		repository.save(model);
 	}

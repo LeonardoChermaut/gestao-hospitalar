@@ -1,9 +1,12 @@
 package com.sistemadecadastro.model;
 
 import lombok.*;
+import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -11,36 +14,36 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "medico")
+
 public class DoctorModel implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
 
     @Column(nullable = false)
-    @Size(max = 120)
+    @Length(max = 120)
     private String nome;
 
     @Column(nullable = false, unique = true)
     @Size(max = 7)
-    private int crm;
+    private String crm;
 
     @Column(nullable = false, unique = true)
-    @Size(max = 12)
-    private int celular;
+    @Length(max = 12)
+    private String celular;
 
     @Column(nullable = false, unique = true)
-    @Size(max = 11)
-    private int telefone;
+    @Length(max = 11)
+    private String telefone;
 
     @Column(nullable = false, unique = true)
-    private int cep;
+    @Length(max = 8)
+    private String cep;
 
-    @ManyToOne
-    @JoinColumn(name = "especialidades")
-    private SpecialtiesModel especialidade;
-
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "medico")
+    private Set<SpecsDoctorModel> specs;
 }
 

@@ -3,7 +3,6 @@ package com.sistemadecadastro.service;
 import com.sistemadecadastro.dto.Specialties.CreateSpecialtiesDto;
 import com.sistemadecadastro.dto.Specialties.SpecialtiesDto;
 import com.sistemadecadastro.dto.Specialties.UpdateSpecialtiesDto;
-import com.sistemadecadastro.exception.Doctor.DoctorNotFoundException;
 import com.sistemadecadastro.exception.Specialties.SpecialtiesNotFoundException;
 import com.sistemadecadastro.model.SpecialtiesModel;
 import com.sistemadecadastro.repository.SpecialtiesRepository;

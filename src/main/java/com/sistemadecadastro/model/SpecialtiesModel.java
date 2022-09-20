@@ -3,7 +3,6 @@ package com.sistemadecadastro.model;
 
 import lombok.*;
 import javax.persistence.*;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Set;
@@ -28,7 +27,7 @@ public class SpecialtiesModel implements Serializable {
 
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "especialidade")
-    private Set<DoctorModel> medicos;
+    private Set<SpecsDoctorModel> specs;
 
 }
 

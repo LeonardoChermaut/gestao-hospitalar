@@ -14,7 +14,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/api/medicinal")
+@RequestMapping(value = "/api/specialties")
 public class SpecialtiesController {
 
     @Autowired
